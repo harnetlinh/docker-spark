@@ -38,6 +38,9 @@ docker exec -it $MASTER_CONTNAME bash -c "cd ../app && ./copy.sh"
 # Run job
 docker exec -it $MASTER_CONTNAME bash -c "cd ../app && ./run.sh"
 
+# get the output
+export MASTER_CONTNAME=master
+docker exec -it $MASTER_CONTNAME bash -c "hdfs dfs -ls hdfs://master:9000/output; hdfs dfs -ls hdfs://master:9000/output"
+
 # Stop all
 # docker exec -it $MASTER_CONTNAME bash -c "cd ../app && ./stop.sh"
-docker exec -it $MASTER_CONTNAME bash -c "hdfs dfs -ls"
