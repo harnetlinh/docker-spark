@@ -1,4 +1,2 @@
 
 docker rmi -f server
-
-

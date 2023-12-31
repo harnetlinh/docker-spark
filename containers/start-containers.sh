@@ -12,6 +12,7 @@ docker network create haginet
 MASTER_CONTNAME=master
 CONTCPU=1
 docker run --cpuset-cpus="$CONTCPU" --net haginet --name $MASTER_CONTNAME --hostname $MASTER_CONTNAME -p 8080:8080  -d -v $HAGIHOME/jdk1.8.0_221:/root/java -v $HERE/slave-info.txt:/root/slave-info.txt -v $HAGIHOME/sujet-tp-scale:/root/app server ./master-node.sh
+sleep 120
 
 # Run spark slave containers
 for ((i=1; i<=NUMBER_OF_SLAVE; i++)); do
@@ -24,6 +25,7 @@ for ((i=1; i<=NUMBER_OF_SLAVE; i++)); do
   docker run --cpuset-cpus="$CONTCPU" --net haginet --name $CONTNAME --hostname $CONTNAME -d -v $HAGIHOME/jdk1.8.0_221:/root/java -v $HERE/slave-info.txt:/root/slave-info.txt server ./slave-node.sh
 done
 
+sleep 120
 # Compile the WordCount.java application
 docker exec -it $MASTER_CONTNAME bash -c "cd ../app && ./comp.sh"
 
@@ -37,4 +39,5 @@ docker exec -it $MASTER_CONTNAME bash -c "cd ../app && ./copy.sh"
 docker exec -it $MASTER_CONTNAME bash -c "cd ../app && ./run.sh"
 
 # Stop all
-docker exec -it $MASTER_CONTNAME bash -c "cd ../app && ./stop.sh"
+# docker exec -it $MASTER_CONTNAME bash -c "cd ../app && ./stop.sh"
+docker exec -it $MASTER_CONTNAME bash -c "hdfs dfs -ls"

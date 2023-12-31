@@ -9,9 +9,12 @@
 ```
 
 2. Start container and run as the requirements
+
 ```
    cd containers && ./start-containers.sh <number slave> <size of the file to treat>
 ```
+
+To go to the UI of the master node, go to http://localhost:8080
 
 For example:
 
@@ -20,6 +23,7 @@ cd containers && ./start-containers.sh 2 10
 ```
 
 3. Delete containers
+
 ```
    cd containers && ./kill-containers.sh
 ```

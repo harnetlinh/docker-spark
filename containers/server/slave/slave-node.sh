@@ -15,6 +15,8 @@ echo "export SPARK_MASTER_HOST=master" >> /opt/spark/conf/spark-env.sh
 # Mkdir for data
 mkdir -p /hadoop/hdfs/datanode
 
+# Start datanode
+hadoop-daemon.sh start datanode
 # Start the spark slave node
 start-slave.sh spark://master:7077
 
