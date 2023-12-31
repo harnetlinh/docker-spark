@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+        <description>Default block replication.</description>
+    </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>/hadoop/hdfs/namenode</value>
+        <description>Location of the HDFS Namenode directory.</description>
+    </property>
+    <property>
+        <name>dfs.namenode.checkpoint.dir</name>
+        <value>/hadoop/hdfs/secondarynamenode</value>
+        <description>Location of the SecondaryNameNode checkpoint directory.</description>
+    </property>
+</configuration>

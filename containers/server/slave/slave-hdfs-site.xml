@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+        <description>Default block replication.</description>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>/hadoop/hdfs/datanode</value>
+        <description>Location of the HDFS Datanode directory.</description>
+    </property>
+</configuration>
